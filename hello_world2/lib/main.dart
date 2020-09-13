@@ -22,15 +22,21 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key key}) : super(key: key);
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter App"),
       ),
-      body: Center(
-        child: Text("Playground"),
+      body: Column(
+        children: [
+          Card(
+            child: Text("Chart"),
+          ),
+          Card(
+            child: Text("List of TX"),
+          )
+        ],
       ),
     );
   }
