@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './transaction.dart';
+import 'models/transaction.dart';
 import 'package:intl/intl.dart';
 
 void main() {
@@ -32,6 +32,10 @@ class MyHomePage extends StatelessWidget {
         amount: 16.53,
         date: DateTime.now()),
   ];
+  // String titleInput;
+  // String amountInput;
+  final titleEditingController = TextEditingController();
+  final amountEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +43,7 @@ class MyHomePage extends StatelessWidget {
         title: Text("Flutter App"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
@@ -47,6 +51,38 @@ class MyHomePage extends StatelessWidget {
             child: Card(
               color: Colors.blue,
               child: Text("Chart"),
+              elevation: 5,
+            ),
+          ),
+          Card(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                    /*onChanged: (value) {
+                      titleInput = value;
+                    },*/
+                    controller: this.titleEditingController,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                    /*onChanged: (value) {
+                      amountInput = value;
+                    },*/
+                    controller: this.amountEditingController,
+                  ),
+                  FlatButton(
+                      onPressed: () {
+                        print(titleEditingController.text);
+                        print(amountEditingController.text);
+                      },
+                      textColor: Colors.purple,
+                      child: Text('Add transaction'))
+                ],
+              ),
             ),
           ),
           Column(
