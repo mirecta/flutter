@@ -26,6 +26,27 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return Card(
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                  elevation: 5,
+                  child: ListTile(
+                    leading: CircleAvatar(
+                        radius: 30,
+                        child: Padding(
+                          padding: EdgeInsets.all(6),
+                          child: FittedBox(
+                              child: Text('\$${transactions[index].amount}')),
+                        )),
+                    title: Text(
+                      transactions[index].title,
+                      style: Theme.of(context).textTheme.title,
+                    ),
+                    subtitle: Text(
+                      DateFormat('dd.MM.yyyy').format(transactions[index].date),
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                );
+                /*return Card(
                     elevation: 3,
                     child: Row(
                       children: [
@@ -62,7 +83,7 @@ class TransactionList extends StatelessWidget {
                           ],
                         )
                       ],
-                    ));
+                    ));*/
               },
               itemCount: transactions.length,
             ),
