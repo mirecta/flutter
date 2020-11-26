@@ -7,7 +7,7 @@ class ChartBar extends StatelessWidget {
   ChartBar(this.label, this.spendingAmount, this.spendingPctOfTotal);
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (ctx, constraints) {
+    return LayoutBuilder( builder: (ctx, constraints) {
       return Column(children: [
         Container(
           height: constraints.maxHeight * 0.15,
